@@ -1,3 +1,3 @@
 # Olio_Ohjelmointi
 
-Link to Bus project https://github.com/BulqRomCO/MapAPPi
+Link to Bus map project https://github.com/BulqRomCO/MapAPPi
