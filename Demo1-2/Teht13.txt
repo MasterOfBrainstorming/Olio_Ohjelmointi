@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Teht13
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num, min, max, sum, allpo;
+            int[] points = new int[5];
+            for (int x = 0; x < 5; x++)
+            {
+                Console.WriteLine("Give your points > ");
+                num = int.Parse(Console.ReadLine());
+                points[x] = num;
+            }
+            sum = points.Sum();
+            max = points.Max();
+            min = points.Min();
+            allpo = sum - max - min;
+            Console.WriteLine("Your points {0} are ", allpo);
+
+
+
+        }
+    }
+}

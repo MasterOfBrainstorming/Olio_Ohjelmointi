@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Snuffe
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Snuffe snuf = new Snuffe();
+            Snuffe stats = new Snuffe();
+            while (stats.Dead != true)
+            {
+                Console.Write("Commands:\nget new box\nopen box\nuse snuff/don't use\neat\ndrink\nshow status\nshow commands\n>");
+                snuf.Hunger = 5;
+                snuf.Hydration = 3;
+                string value;
+                bool temp = snuf.Isbox(Console.ReadLine());
+                while (temp == true)
+                {
+                    Console.Write(">");
+                    snuf.Isboxopen(Console.ReadLine());
+                    while (snuf.OpenClose == true && temp == true)
+                    {
+                        if (temp == true)
+                        {
+                            Console.Write(">");
+                            value = Console.ReadLine();
+                            if (snuf.GameStatus == 1000) { snuf.Isdead(); break; }
+                            else if (snuf.GameStatus == 2000) { snuf.Isdead(); break; }
+                            else if (snuf.Hydration >= 10) { Console.WriteLine("You died to water intoxication, better luck next time\nGAME OVER LOSER"); snuf.Isdead(); break; }
+                            else if (snuf.Hydration <= 0) { Console.WriteLine("You died to hydration, better luck next time\nGAME OVER LOSER"); snuf.Isdead(); break; }
+                            if (value == "use snuff" || value == "snuff") { snuf.GetSnuff(value); }
+                            else if (value == "don't use snuff" || value == "dont use") { snuf.GetSnuff(value); }
+                            else if (value == "show status" || value == "status") { snuf.CheckStatus(); }
+                            else if (value == "show commands" || value == "help") { snuf.ShowCommands(); }
+                            else if (value == "drink") { Console.WriteLine("Woops, you didn't define what to drink\nYou drank kerosine and died\nGAME OVER LOSER"); snuf.Isdead(); break; }
+                            else if (value == "eat") { Console.WriteLine("Wooops, you didn't define what to eat\nYou swallowed a foot long sandwich whole and choked to it\nGAME OVER LOSER"); snuf.Isdead(); break; }
+                            else if (value == "drink water")
+                            {
+                                snuf.Drinkwater();
+                                if (snuf.Hydration >= 10) { Console.WriteLine("You died to water intoxication, better luck next time\nGAME OVER LOSER"); snuf.Isdead(); break; }
+                                else if (snuf.Hydration <= 0) { Console.WriteLine("You died to hydration, better luck next time\nGAME OVER LOSER"); snuf.Isdead(); break; }
+                                else { continue; }
+                            }
+                            else if (value == "eat sandwich")
+                            {
+                                snuf.Eatsandwich();
+                                if (snuf.Hunger >= 8) { Console.WriteLine("You died to high colesterol you fat fiend. Next time, try to leave the sweats alone ok?\nGAME OVER LOSER"); snuf.Isdead(); break; }
+                                else if (snuf.Hunger <= 0) { Console.WriteLine("You died to being too hungry. You had all the food in the world and you didn't eat it. SHAME\nGAME OVER LOSER"); snuf.Isdead(); break; }
+                                else { continue; }
+                            }
+                            else if (value == "suicide" || value == "kill yourself") { Console.WriteLine("Seems like you took the easy way out.\nYou died during autoerotic asphyxiation\nGAME OVER LOSER"); snuf.Isdead(); break; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

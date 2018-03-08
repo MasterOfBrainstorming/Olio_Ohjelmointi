@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Student
+{
+    class Student
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Address { get; set; }
+        public int PhoneNum { get; set; }
+        public string Email { get; set; }
+        public int Ects { get; set; }
+        public string Program { get; set; }
+
+
+        public void SetID(int value) { ID = value; }
+        public void SetName(string value) { Name = value; }
+        public void SetAge(int value) { Age = value; }
+        public void SetAddress(string value) { Address = value;}
+        public void SetEmail(string value) { Email = value; }
+        public void SetEcts(int value) { Ects = value; }
+        public void SetProgram(string value) { Program = value; }
+        public void SetPhoneNum(int value) { PhoneNum = value; }
+        public void PrintInfo()
+        {
+            Console.WriteLine("Name: {0}\nAge: {1}\nAddress: {2}\nEmail: {3}\nPhone Number: {4}\nECTS: {5}\nProgram: {6}\n",Name, Age, Address, Email, PhoneNum, Ects, Program);
+        }
+
+        public string ToString()
+        {
+            string info = String.Format("ID: {0}\nName: {1}\nAge: {2}\nAddress: {3}\nEmail: {4}\nPhone Number: {5}\nECTS: {6}\nProgram: {7}\n",ID ,Name, Age, Address, Email, PhoneNum, Ects, Program);
+            return info;
+        }
+    }
+}

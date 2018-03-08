@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Write a string to find out if it's a palindrome");
+            string ans = Console.ReadLine();
+            string reverseans = "";
+            for (int i = ans.Length - 1; i >= 0; i--)
+            {
+                reverseans += ans[i];
+            }
+            if (reverseans == ans) { Console.WriteLine("The string you inputted is a palindrome {0}", ans); }
+            else { Console.WriteLine("The string you inputted wasnt a palindrome {0}", ans); }
+
+
+
+        }
+    }
+}

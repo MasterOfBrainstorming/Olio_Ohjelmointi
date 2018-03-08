@@ -1,0 +1,152 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Snuffe
+{
+    class Snuffe
+    {
+        private int Health = 100;
+        private static int LowHealth = 0;
+        private static int MaxHealth = 100;
+        private int Armor = 0;
+        private static int MaxArmor = 100;
+        private static int MinArmor = 0;
+        public double Nicotine { get; set; }
+        public bool Dead = false;
+        private static double Snuff = 7.00;
+        private static double MaxNicotine = 50.0;
+        private static double MinNicotine = 0;
+        public double GameStatus { get; set; }
+        public bool OpenClose { get; set; }
+        public double Hydration { get; set; }
+        public double Hunger { get; set; }
+        public int Use { get; set; }
+        public int Mouth { get; set; }
+        public int BoxStatus { get; set; }
+        public bool Box { get; set; }
+        public int Boxes = 2;
+        private static int MaxBox = 24;
+        private static int MinBox = 0;
+
+        public bool NicotinePoisoning { get; set; }
+
+        public bool Isbox(string value)
+        {
+            if (value == "get new box" || value == "get box")
+            {
+                Box = true;
+                BoxStatus = MaxBox;
+                return Box;
+            }
+            else if (value == "throw the box away" || value == "throw box") { Box = false; return Box; }
+            else { Console.WriteLine("\nYou have a box {0}\n", Box); return Box; }
+        }
+
+        public bool Isboxopen(string value)
+        {
+            if (value == "open box" || value == "open")
+            {
+                OpenClose = true;
+                return OpenClose;
+            }
+            else if (value == "throw the box away" || value == "throw box") { OpenClose = false; return OpenClose; }
+            else { Console.WriteLine("\nYou have a box {0}\n", OpenClose); return OpenClose; }
+        }
+
+
+        public void GetSnuff(string value)
+        {
+            if (value == "use snuff" || value == "snuff")
+            {
+                if (MinBox <= BoxStatus)
+                {
+                    if (NicotinePoisoning == false)
+                    {
+                        if (Mouth <= MaxNicotine / Snuff)
+                        {
+                            Mouth++;
+                            BoxStatus--;
+                            Nicotine += Snuff;
+                            Hunger -= 0.2;
+                            Hydration -= 0.5;
+                            if (Nicotine > 35)
+                            {
+                                NicotinePoisoning = true;
+                                Hydration--;
+                                Console.WriteLine("You have nicotine poisoning");
+                            }
+
+                        }
+                        else { Console.WriteLine("Empty your mouth"); }
+                    }
+                    else
+                    {
+                        Console.WriteLine("You have nicotine poisoning, drink or eat something");
+                        Nicotine += Snuff;
+                        Hydration -= 2;
+                        Mouth++;
+                        BoxStatus--;
+                        Hunger -= 2;
+                        if (Nicotine == MaxNicotine)
+                        {
+                            Console.WriteLine("WHAT A CHAMP! You used so much snuff that you fell into a coma. Congrats!\nYou never woke up\nGAME OVER LOSER");
+                            GameStatus = 1000;
+                        }
+                    }
+                }
+                else { Console.WriteLine("Your box is empty"); Isempty(); }
+            }
+            else if (value == "don't use" || value == "don't use snuff") { Mouth--; }
+            else { Console.WriteLine("Wrong command"); }
+
+        }
+
+        public void Isempty()
+        {
+            if (BoxStatus == MinBox) { Box = false; }
+            else { Console.WriteLine("Box Status: {0}", BoxStatus); }
+        }
+
+        public void Isthereboxes()
+        {
+            if (Boxes == 0)
+            {
+                Console.WriteLine("Congratulations you have won the game! How does it feel to be addicted?");
+                GameStatus = 2000;
+            }
+        }
+
+        public void CheckStatus()
+        {
+            Console.Write("----------------------------------------------------\nNicotine levels: {0}   |    Nicotine Poisoning: {1}\nYou have a box: {2} |\nBoxStatus: {3}        |    In mouth: {4}\nUsed: {5}              |    Boxes Left: {6}\n", Nicotine, NicotinePoisoning, Box, BoxStatus, Mouth, Use, Boxes);
+            Console.Write("Hunger: {0}            |    Hydration: {1}\nHealth: {2}          |    Armor: {3}\n----------------------------------------------------\n", Hunger, Hydration,Health,Armor);
+        }
+        public void ShowCommands() { Console.Write("Commands:\nget new box\nopen box\nuse snuff/don't use\neat\ndrink\nshow status\nshow commands\n>"); }
+        public void Drinkwater()
+        {
+            Nicotine -= 7;
+            Hydration += 1;
+            Hunger -= 0.6;
+            if (Nicotine <= MinNicotine)
+            {
+                Nicotine = MinNicotine;
+            }
+            else { Nicotine = Nicotine; }
+        }
+        public void Eatsandwich()
+        {
+            Nicotine -= 2;
+            Hunger += 0.3;
+            Hydration -= 0.2;
+            if (Nicotine <= MinNicotine)
+            {
+                Nicotine = MinNicotine;
+            }
+            else { Nicotine = Nicotine; }
+        }
+        public void Isdead() { Dead = true; }
+    }
+}

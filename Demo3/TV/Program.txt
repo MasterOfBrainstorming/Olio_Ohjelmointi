@@ -1,0 +1,73 @@
+// Tehtävänäsi on ohjelmoida television toiminta. 
+// Samoin kuin edellinen tehtävä: mitä ominaisuuksia 
+// ja toimintoja tekisit Televisio-luokkaan? 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TV
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string ans1 = "";
+            while (true)
+            {
+                Console.WriteLine("Commands:\npower on/turn off\nchange volume\nchange channel\nmenu\nprint data\nquit/q");
+                TV tv = new TV(false);
+                Console.Write(">");
+                ans1 = Console.ReadLine();
+                bool temp = tv.Ison(ans1);
+                if (temp == true)
+                {
+                    while (temp == true)
+                    {
+                        Console.Write(">");
+                        ans1 = Console.ReadLine();
+                        if (ans1 == "change volume" || ans1 == "volume")
+                        {
+                            Console.Write("+/- Volume\n");
+                            ans1 = Console.ReadLine();
+                            tv.ChangeVolume(ans1);
+                        }
+                        else if (ans1 == "change channel" || ans1 == "channel")
+                        {
+                            Console.Write("+/- Channel\n");
+                            ans1 = Console.ReadLine();
+                            tv.ChangeChannel(ans1);
+                        }
+                        else if (ans1 == "menu")
+                        {
+                            tv.PrintOptions();
+                            tv.Options = int.Parse(Console.ReadLine());
+                            tv.ChooseOption();
+                            int ans2 = int.Parse(Console.ReadLine());
+                            tv.ChangeColor(ans2);
+                        }
+                        else if (ans1 == "print data" || ans1 == "data")
+                        {
+                            tv.PrintData();
+                        }
+                        else if (ans1 == "turn off"|| ans1 == "off")
+                        {
+                            temp = tv.Ison(ans1);
+                        }
+                        
+                        else { Console.WriteLine("You didn't choose a correct parameter"); continue; }
+                        
+                    }
+
+                }
+                else if (ans1 == "quit"||ans1 == "q") { break; }
+                else if (ans1 == "print data" || ans1 == "data") { tv.PrintData(); }
+                else { Console.WriteLine("The TV is off, power it on!\n"); }
+                
+            }
+          
+        }
+    }
+}

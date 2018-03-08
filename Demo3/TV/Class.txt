@@ -1,0 +1,189 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TV
+{
+    class TV
+    {
+        public bool OnOff { get; set; }
+        public int Volume { get; set; }
+        private static int MinVolume = 0;
+        private static int MaxVolume = 100;
+        public int Channel { get; set; }
+        private static int MinChannel = 0;
+        private static int MaxChannel = 5000;
+        public int Menu { get; set; }
+        public int Color { get; set; }
+        public int Red { get; set; }
+        public int Green { get; set; }
+        public int Blue { get; set; }
+        private static int MaxColor = 255;
+        private static int MinColor = 0;
+        public int Options { get; set; }
+
+        public TV(bool onOff)
+        {
+            OnOff = onOff;
+        }
+
+        public bool Ison(string value)
+        {
+            if (value == "power on" || value == "on")
+            {
+                OnOff = true;
+                return OnOff;
+            }
+            else if (value == "turn off" || value == "off") { OnOff = false; return OnOff; }
+            else
+            {
+                Console.WriteLine("\nTv is on {0}\n", OnOff); return OnOff;
+            }
+        }
+
+        public void ChangeChannel(string value)
+        {
+            if (value == "+")
+            {
+                Console.Write("Current channel is {0}\n>", Channel);
+                Channel += int.Parse(Console.ReadLine());
+                if (Channel <= MaxChannel) { Channel = Channel; }
+                else { Channel = MaxChannel; }
+            }
+            else if (value == "-")
+            {
+                Console.Write("Current channel is {0}\n>", Channel);
+                Channel -= int.Parse(Console.ReadLine());
+                if (Channel <= MinChannel) { Channel = MinChannel; }
+                else { Channel = Channel; }
+            }
+            else
+            {
+                Console.WriteLine("Current channel is {0}", Channel);
+            }
+        }
+
+        public void ChangeVolume(string value)
+        {
+            if (value == "+")
+            {
+                Console.Write("Current volume is {0}\n>", Volume);
+                Volume += int.Parse(Console.ReadLine());
+                if (Volume <= MaxVolume) { Volume = Volume; }
+                else { Volume = MaxVolume; }
+            }
+            else if (value == "-")
+            {
+                Console.Write("Current volume is {0}\n>", Volume);
+                Volume -= int.Parse(Console.ReadLine());
+                if (Volume <= MinVolume) { Volume = MinVolume; }
+                else { Volume = Volume; }
+            }
+            else
+            {
+                Console.WriteLine("Current volume is {0}", Volume);
+            }
+        }
+        public void ChangeColor(int value)
+        {
+            Console.Write("+/- Color\n>");
+            string ans = Console.ReadLine();
+            if (value ==1)
+            {
+               
+                if (ans == "+")
+                {
+                    Console.Write("Color is {0}\n>", Red);
+                    Red = int.Parse(Console.ReadLine());
+                    if (Red <= MaxColor) { Red = Red; }
+                    else { Red = MaxColor; }
+                }
+                else if (ans == "-")
+                {
+                    Console.Write("Current channel is {0}\n>", Red);
+                    Red -= int.Parse(Console.ReadLine());
+                    if (Red <= MinColor) { Red = MinColor; }
+                    else { Red = Red; }
+                }
+                else
+                {
+                    Console.WriteLine("Current channel is {0}", Red);
+                }
+            }
+            
+            else if (value == 2)
+            {
+                
+                if (ans == "+")
+                {
+                    Console.Write("Color is {0}\n>", Blue);
+                    Blue = int.Parse(Console.ReadLine());
+                    if (Blue <= MaxColor) { Blue = Blue; }
+                    else { Blue = MaxColor; }
+                }
+                else if (ans == "-")
+                {
+                    Console.Write("Current channel is {0}\n>", Blue);
+                    Blue -= int.Parse(Console.ReadLine());
+                    if (Blue <= MinColor) { Blue = MinColor; }
+                    else { Blue = Blue; }
+                }
+                else
+                {
+                    Console.WriteLine("Current channel is {0}", Blue);
+                }
+            }
+            else if(value == 3)
+            {
+               
+                if (ans == "+")
+                {
+                    Console.Write("Color is {0}\n>", Green);
+                    Green = int.Parse(Console.ReadLine());
+                    if (Green <= MaxColor) { Green = Green; }
+                    else { Green = MaxColor; }
+                }
+                else if (ans == "-")
+                {
+                    Console.Write("Current channel is {0}\n>", Green);
+                    Green -= int.Parse(Console.ReadLine());
+                    if (Green <= MinColor) { Green = MinColor; }
+                    else { Green = Green; }
+                }
+                else
+                {
+                    Console.WriteLine("Current channel is {0}", Green);
+                }
+            }
+
+            
+        }
+
+        public void ChooseOption()
+        {
+            if (Options == 1) { Console.WriteLine("Doesn't work"); }
+            else if (Options == 2)
+            {
+                Console.Write("1.Change Color RED\n2.Change Color BLUE\n3.Change Color GREEN\n>");
+            
+            }
+            else { Console.WriteLine("No more options"); }
+        }
+
+        public void PrintOptions()
+        {
+            Console.Write("Menu\n1:Netflix&Chill\n2:Options\n>");
+        }
+
+        public void PrintData()
+        {
+            Console.WriteLine("---------------------------------\nThe TV is on {0}", OnOff);
+            Console.WriteLine("Channel is {0}",Channel);
+            Console.WriteLine("Volume {0}",Volume);
+            Console.WriteLine("Color Red {0}, Blue {1}, Green {2}\n",Red,Blue,Green);
+        }
+
+    }
+}

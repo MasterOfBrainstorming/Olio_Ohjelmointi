@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01.Hissi
+{
+    class Floor
+    {
+        private int MinFloor = 1;
+        private int cfloor = 1;
+        private int MaxFloor = 5;
+        public int Floornum
+        {
+            get
+            {
+                return cfloor ;
+            }
+            set
+            {
+                Getfloor(value);
+            }
+        }
+
+
+        public void Getfloor(int value)
+        {
+            if (value <= MaxFloor && value >= MinFloor)
+            {
+                cfloor = value;
+                PrintFloor();
+            }
+            else if (value < MinFloor)
+            {
+                cfloor = MinFloor;
+                PrintFloor();
+            }
+            else if (value > MaxFloor)
+            {
+                cfloor = MaxFloor;
+                PrintFloor();
+            }
+        }
+        public void Getfeed()
+        {
+            Console.Write("Elevator is on {0} floor\n>", cfloor);
+            Floornum = int.Parse(Console.ReadLine());
+        }
+
+        public void PrintFloor()
+        {
+            Console.Write("\nCurrent floor {0}\n", cfloor);
+        }
+    }
+}

@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Wmachine
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Wmachine wmachine = new Wmachine(false);
+            wmachine.PrintData();
+            Console.Write("Turn on the washing machine (yes/no)\n>");
+            string ans1 = Console.ReadLine();
+            wmachine.Ison(ans1);
+            wmachine.PrintData();
+            Console.Write("Lock the machine (yes/no)\n>");
+            ans1 = Console.ReadLine();
+            wmachine.Islock(ans1);
+            Console.Write("Turn the water on (yes/no)\n>");
+            ans1 = Console.ReadLine();
+            wmachine.Iswater(ans1);
+            Console.Write("Mode 1 = Underwear\nMode2 = Sweater\nMode3 = Jacket\n>");
+            int ans2 = int.Parse(Console.ReadLine());
+            wmachine.Adjustmode(ans2);
+            wmachine.AdjustRPM();
+            wmachine.PrintData();
+            Console.Write("Ajust temperature (+/-) or [ENTER] to continue\n>");
+            ans1 = Console.ReadLine();
+            wmachine.AdjustTemperature(ans1);
+            wmachine.PrintData();
+            Console.Write("Start the program? (yes/no)\n>");
+            ans1 = Console.ReadLine();
+            wmachine.Isrunning(ans1);
+            wmachine.PrintData();
+        }
+    }
+}

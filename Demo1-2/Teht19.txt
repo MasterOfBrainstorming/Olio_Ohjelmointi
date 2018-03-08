@@ -1,0 +1,83 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Teht19
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int tries = 3;
+            bool win = false;
+
+            string[] words = { "nakkimaa", "sillisalmiakki", "nakki.txt", "tupakka", "makkara", "perse" };
+
+
+            List<char> wrongans = new List<char>();
+            List<char> corrans = new List<char>();
+
+            Random r = new Random();
+            string randomword = words[r.Next(0, words.Length)];
+
+            StringBuilder display = new StringBuilder(randomword.Length);
+            for (int i = 0; i < randomword.Length; i++)
+                display.Append("|_|");
+
+            int dletters = 0;
+
+            string input;
+            char ans;
+
+            Console.WriteLine(display);
+            while (tries > 0 && !win)
+            {
+                Console.WriteLine("Guess:");
+                Console.Write("> ");
+                input = Console.ReadLine();
+                ans = input[0];
+
+                if (randomword.Contains(ans))
+                {
+                    corrans.Add(ans);
+                    for (int i = 0; i < randomword.Length; i++)
+                    {
+                        if (randomword[i] == ans)
+                        {
+                            display[i] = randomword[i];
+                            dletters++;
+                        }
+                    }
+                    if (dletters == randomword.Length) { win = true; }
+                }
+                else
+                {
+                    Console.WriteLine("Try again");
+                    wrongans.Add(ans);
+                    tries--;
+                }
+
+                Console.WriteLine(display.ToString());
+
+                if (corrans.Contains(ans))
+                {
+                    Console.WriteLine("Nois!");
+                    continue;
+                }
+                else if (wrongans.Contains(ans))
+                {
+                    Console.WriteLine("Try again");
+                    tries--;
+                    continue;
+                }
+            }
+
+            if (win) { Console.WriteLine("GG!"); }
+            else { Console.WriteLine("You lose sukkah! The word was {0}", randomword); }
+            Console.ReadLine();
+        }
+    }
+}

@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication23
+{
+    class Radio
+    {
+
+        private int MaxVol = 100;
+        private int MinVol = 0;
+        private int Vol = 0;
+        public bool Status = false;
+        private float MinFreq = 2000;
+        private float MaxFreq = 26000;
+        private float Freq = 2000;
+        public bool OnOff
+        {
+            get{ return Status; }
+            set{ Status = value; }
+        }
+
+        public void ChangeVol(int value)
+        {
+            if (value <= MaxVol && value >= MinVol){ Vol = value; }
+            else if (value < MinVol){ Vol = MinVol; }
+            else if (value > MaxVol){ Vol = MaxVol; }
+            Print();
+        }
+        public void ChangeFreq(float value)
+        {
+            if (value <= MaxFreq && value >= MinFreq){ Freq = value; }
+            else if (value < MinFreq){ Freq = MinFreq; }
+            else if (value > MaxFreq){ Freq = MaxFreq; }
+            Print();
+        }
+
+        public void GetFeed(int value)
+        {
+            if (value == 1)
+            {
+                Console.Write("Current VOL: {0}\n>",Vol);
+                ChangeVol(int.Parse(Console.ReadLine()));
+            }
+            else if (value == 2)
+            {
+                Console.WriteLine("Current FREQ: {0}\n>",Freq);
+                ChangeFreq(float.Parse(Console.ReadLine()));
+            }
+        }
+        public void Print()
+        {
+            Console.Write("Volume: {0}  Freq: {1}\n",Vol,Freq);
+        }
+    }
+}

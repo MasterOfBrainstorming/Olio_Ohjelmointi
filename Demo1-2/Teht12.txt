@@ -1,0 +1,45 @@
+// Tee ohjelma, joka kysyy k‰ytt‰j‰lt‰ 5 kokonaislukua. 
+// Luvut tulee sijoittaa taulukkoon. 
+// Ohjelman tulee tulostaa annetut luvut k‰‰nteisess‰ j‰rjestyksess‰.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Teht12
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a;
+            int[] b = new int[4];
+            for (int i = 0; i <= b.Length-1; i++)
+            {
+                Console.WriteLine("Give a number");
+                a = int.Parse(Console.ReadLine());
+                b[i] = a;
+
+            }
+
+            for (int x = 0; x < b.Length / 2; x++)
+            {
+                int temp = b[x];
+                b[x] = b[b.Length - x - 1];
+                b[b.Length - x - 1] = temp;
+            }
+
+            Console.WriteLine();
+
+            foreach (int z in b)
+            {
+                Console.Write("{0} ,", z);
+            }
+            Console.WriteLine();
+
+        }
+    }
+}

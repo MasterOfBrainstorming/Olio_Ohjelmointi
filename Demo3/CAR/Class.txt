@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Car
+{
+    class Car
+    {
+        public string Name { get; set; }
+        public int Speed { get; set; }
+        public int Tyres { get; set; }
+
+
+
+        public void PrintData()
+        {
+            Console.WriteLine("Car Specs:\nName: {0}\nSpeed: {1}kmh\nTyres: {2}e\n",Name,Speed,Tyres);
+        }
+        public string ToString()
+        {
+            string nakki = String.Format("Car Specs:\nName: {0}\nSpeed: {1}kmh\nTyres: {2}e\n", Name, Speed, Tyres);
+            return nakki;
+        }
+
+    }
+}

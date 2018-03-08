@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random x = new Random();
+            int random = x.Next(0, 100);
+            Console.WriteLine("Random number is {0}",random);
+            while (true)
+            {
+                Console.WriteLine("Give a number");
+                int ans = int.Parse(Console.ReadLine());
+                if (ans == random)
+                {
+                    Console.WriteLine("You guessed correctly");
+                    break;
+                }
+                else if (ans > random)
+                {
+                    Console.WriteLine("The number is smaller!");
+                }
+                else
+                {
+                    Console.WriteLine("The number is bigger");
+                }
+            }
+        }
+    }
+}

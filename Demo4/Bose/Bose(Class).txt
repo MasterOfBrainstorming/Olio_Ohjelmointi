@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace teht03
+{
+    class Bose : Employ
+    {
+        public string Car;
+        public int Bonus;
+
+
+
+        public Bose(string name, string profession, int salary, string car, int bonus)
+            : base(name, profession, salary)
+        {
+            Name = name;
+            Profession = profession;
+            Salary = salary;
+            Car = car;
+            Bonus = bonus;
+        }
+
+        public void changeCar(string newcar)
+        {
+            Car = newcar;
+        }
+
+        public void changeBonus(int newbonus)
+        {
+            Bonus = newbonus;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + " Auto: " + Car + " Bonarit: " + Bonus;
+        }
+    }
+}

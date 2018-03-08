@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace teht04
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Baik baik = new Baik("empty", "none", 20467, "none", false, "empty");
+            Baik baik2 = new Baik("baikki2", "Urbaani", 2000, "Asian", true, "Flex");
+            Boat botsku = new Boat("röffe", "Röllömaistuu", 2015, "Blue", 11, "Sundancer");
+            Console.WriteLine(baik.ToString());
+            Console.WriteLine(baik2.ToString());
+            Console.WriteLine(botsku.ToString());
+        }
+    }
+}

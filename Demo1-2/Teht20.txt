@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            char[] chars = "$%#@!*abcdefghijklmnopqrstuvwxyz1234567890?;:ABCDEFGHIJKLMNOPQRSTUVWXYZ^&".ToCharArray();
+            Random r = new Random();
+            int i;
+            Console.WriteLine("Input the size of your password");
+            int answ = int.Parse(Console.ReadLine());
+            char[] nakki = new char[answ];
+            for (int x=0; x < answ; x++)
+            {
+                i = r.Next(chars.Length);
+                nakki[x] = chars[i];
+                Console.WriteLine(chars[i]);
+            }
+            if (answ >= 18)
+            {
+                foreach (char a in nakki) { Console.Write("Your new password is {0}, it's really strong", a);
+                }
+            }
+            else if (answ >= 10 || answ < 18)
+            {
+                foreach (char a in nakki)
+                {
+                    Console.Write("Your new password is {0}, it's mediocre", a);
+                }
+            }
+            else { Console.Write("Your password is too weak, try again"); }
+
+        }
+    }
+}

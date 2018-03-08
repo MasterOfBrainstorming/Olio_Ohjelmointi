@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Teh02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numb;
+            Console.WriteLine("Points: 0-1=0, 2-3=1, 4-5=2, 6-7=3, 8-9=4, 10-12=5");
+            Console.WriteLine("Give your result >");
+            string line = (Console.ReadLine());
+            bool result = Int32.TryParse(line, out numb);
+            if (result == true)
+            {
+                if (numb >= 0 || numb <= 12)
+                {
+                    switch (numb)
+                    {
+                    case 0:
+                    case 1: Console.WriteLine("Your number is 0"); break;
+                    case 2:
+                    case 3: Console.WriteLine("Your number is 1"); break;
+                    case 4:
+                    case 5: Console.WriteLine("Your number is 2"); break;
+                    case 6:
+                    case 7: Console.WriteLine("Your number is 3"); break;
+                    case 8:
+                    case 9: Console.WriteLine("Your number is 4"); break;
+                    case 10:
+                    case 11:
+                    case 12: Console.WriteLine("Your number is 5"); break;
+                    }
+                }
+                else { Console.WriteLine("Your number isn't in the given range"); }
+                
+            }
+            else { Console.WriteLine("Please write a number"); }
+        }
+    }
+}

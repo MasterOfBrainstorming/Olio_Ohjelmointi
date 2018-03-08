@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Teht07
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int vuosi;
+            Console.WriteLine("Input a year to find out if it's a leap year");
+            string input = (Console.ReadLine());
+            bool result = int.TryParse(input, out vuosi);
+            if (vuosi % 400 == 0) { Console.WriteLine("The year you inputted ( {0} ) is a leap year", vuosi);}
+            else if (vuosi % 100 == 0) { Console.WriteLine("The year you inputted ( {0} ) isn't a leap year)", vuosi); }
+            else if (vuosi % 4 == 0) { Console.WriteLine("The year you inputted ( {0} ) is a leap year", vuosi); }
+            else { Console.WriteLine("The year you inputted ( {0} ) isn't a leap year)", vuosi); }
+        }
+    }
+}

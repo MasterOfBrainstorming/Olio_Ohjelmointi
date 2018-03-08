@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Heater
+{
+    class Heater
+    {
+        public float Temperature { get; set; }
+        public double Humidity { get; set; }
+        public bool OnOff { get; set; }
+
+        public Heater(bool onOff)
+        {
+            OnOff = onOff;
+        }
+
+        public void HChange(string value)
+        {
+            if (value == "+")
+            {
+                Console.Write("How much would u like to change the humidity, current value is {0}\n>", Humidity);
+                Humidity += double.Parse(Console.ReadLine());
+            }
+            else if (value == "-")
+            {
+                Console.Write("How much would u like to change the humidity, current value is {0}\n>", Humidity);
+                Humidity -= double.Parse(Console.ReadLine());
+            }
+            else { Console.Write("Current humidity is {0}", Humidity); }
+        }
+        public void TChange(string value)
+        {
+            if (value == "+")
+            {
+                Console.Write("How much would u like to change the temperature, current value is {0}\n>", Temperature);
+                Temperature += float.Parse(Console.ReadLine());
+            }
+            else if (value == "-")
+            {
+                Console.Write("How much would u like to change the temperature, current value is {0}\n>", Temperature);
+                Temperature -= float.Parse(Console.ReadLine());
+            }
+            else { Console.Write("Current temperature", Temperature); }
+        }
+
+        public void Turnon(string value)
+        {
+            if (value == "on")
+            {
+                OnOff = true;
+            }
+            else
+            {
+                OnOff = false;
+            }
+        }
+
+        public void PrintData()
+        {
+            Console.Write("--------------------\nHeater is on: {0}\nHumidity: {1}\nTemperature: {2}\n--------------------\n", OnOff,Humidity,Temperature);
+
+        }
+
+    }
+}

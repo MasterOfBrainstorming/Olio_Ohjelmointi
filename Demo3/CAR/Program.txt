@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Car
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Car car = new Car();
+            car.PrintData();
+            car.Name = "Tupakka";
+            car.Speed = 200;
+            car.Tyres = 100;
+            car.PrintData();
+            car.Name = "Röffe";
+            car.Speed = 100;
+            car.Tyres = 300;
+            string nakki = car.ToString();
+            show(nakki);
+            car.Name = "Tsuge";
+            car.Speed = 10;
+            car.Tyres = 15;
+            nakki = car.ToString();
+            show(nakki);
+            car.Name = "Röllö";
+            car.Speed = 9000;
+            car.Tyres = 57;
+            nakki = car.ToString();
+            show(nakki);
+        }
+        public static void show(string nakki)
+        {
+            Console.WriteLine(nakki);
+        }
+    }
+}

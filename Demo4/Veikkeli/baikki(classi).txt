@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace teht04
+{
+    class Baik : Vehicle
+    {
+        public bool GearWheels;
+        public string GearName;
+
+        public Baik(string name, string model, int modelyear, string color, bool gearwheels, string gearname)
+            : base(name, model, modelyear, color)
+        {
+            GearWheels = gearwheels;
+            GearName = gearname;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + " | Gears: " + GearWheels + " | Gear Name : " + GearName + " |";
+        }
+    }
+}

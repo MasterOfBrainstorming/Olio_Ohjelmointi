@@ -1,0 +1,150 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Wmachine
+{
+    class Wmachine
+    {
+        public bool OnOff { get; set; }
+        public bool LockUnlock { get; set; }
+        public bool Water { get; set; }
+        public int Temperature { get; set; }
+        private static int MaxTemp = 60;
+        private static int MinTemp = 30;
+        public int Rpm { get; set; }
+        private static int MaxRpm = 12000;
+        private static int MinRpm = 500;
+        public int Mode { get; set; }
+        public bool Start { get; set; }
+        public string ModeName { get; set; }
+
+        public Wmachine(bool onOff)
+        {
+            OnOff = onOff;
+        }
+
+
+
+
+        public void Ison(string value)
+        {
+            if (value == "yes" || value == "y")
+            {
+                OnOff = true;
+            }
+            else
+            {
+                OnOff = false;
+            }
+        }
+        public void Islock(string value)
+        {
+            if (value == "yes" || value == "y")
+            {
+                LockUnlock = true;
+            }
+            else
+            {
+                LockUnlock = false;
+            }
+        }
+        public void Iswater(string value)
+        {
+            if (value == "yes" || value == "y")
+            {
+                Water = true;
+            }
+            else
+            {
+                Water = false;
+            }
+        }
+
+        public void AdjustTemperature(string value)
+        {
+            if (value == "+")
+            {
+                Console.Write("How much would u like to change the temperature, current value is {0}\n>", Temperature);
+                Temperature += int.Parse(Console.ReadLine());
+                if (Temperature <= MaxTemp) { }
+                else { Temperature = MaxTemp; }
+            }
+            else if (value == "-")
+            {
+                Console.Write("How much would u like to change the temperature, current value is {0}\n>", Temperature);
+                Temperature -= int.Parse(Console.ReadLine());
+                if (Temperature <= MinTemp) { Temperature = MinTemp; }
+                else { Temperature = Temperature; }
+            }
+            else
+            {
+                Console.WriteLine("Current temperature is {0}", Temperature);
+            }
+        }
+        public void AdjustRPM ()
+            {
+            if (Mode == 1)
+            {
+                Rpm = 1000;
+                Temperature = 60;
+            }
+            else if (Mode == 2)
+            {
+                Rpm = 3000;
+                Temperature = 40;
+            }
+            else if (Mode == 3)
+            {
+                Rpm = 6000;
+                Temperature = 30;
+            }
+            else { Console.WriteLine("Current mode {0}, rpm{1} and temperature{2}",Mode,Rpm,Temperature); }
+            }
+        public void Adjustmode (int value)
+        {
+            if (value == 1)
+            {
+                Mode = 1;
+                ModeName = "Underwear";
+            }
+            else if (value == 2)
+            {
+                Mode = 2;
+                ModeName = "Sweater";
+            }
+            else if (value == 2)
+            {
+                Mode = 3;
+                ModeName = "Jacket";
+            }
+            else { Console.WriteLine("Current mode {0}, rpm{1} and temperature{2}", Mode, Rpm, Temperature); }
+        }
+
+        public void Isrunning(string value)
+        {
+            if (value == "yes" || value == "y")
+            {
+                Start = true;
+            }
+            else
+            {
+                Start = false;
+            }
+        }
+
+
+        public void PrintData()
+        {
+            Console.WriteLine("---------------------------------\nThe washing machine is on {0}", OnOff);
+            Console.WriteLine("The lock is on {0}", LockUnlock);
+            Console.WriteLine("The Water is on {0}", Water);
+            Console.WriteLine("The current temperature {0}", Temperature);
+            Console.WriteLine("The current rpm is {0}", Rpm);
+            Console.WriteLine("The current mode is {0} which is {1}",Mode, ModeName);
+            Console.WriteLine("The washing machine is running {0}\n---------------------------------\n", Start);
+        }
+    }
+}

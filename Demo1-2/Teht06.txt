@@ -1,0 +1,39 @@
+// Auton kulutus on 7.02 litraa 100 kilometrin matkalla ja bensan hinta on 1.595 Euroa. 
+// Tee ohjelma, joka tulostaa ajetulla matkalla (kysyt‰‰n k‰ytt‰j‰lt‰) kuluvan bensan 
+// m‰‰r‰n sek‰ bensaan menev‰n rahan m‰‰r‰n.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Teht06
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int dist;
+            double gas = 1.595;
+            Console.WriteLine("What is your cars mileage?");
+            double mileage;
+            if (double.TryParse(Console.ReadLine(), out mileage))
+            {
+                Console.WriteLine("How many kilometer you have driven?");
+                string input = (Console.ReadLine());
+                bool result = Int32.TryParse(input, out dist);
+
+                if (result == true)
+                {
+                    double kskper100 = mileage / 100 * dist;
+                    double mani = (kskper100 * gas);
+                    Console.Write("You've used {0}L of gas on a {1}km distance,", kskper100, dist);
+                    Console.Write(" which is {0} euros", mani);
+                }
+                else { Console.WriteLine("Unexpected error"); }
+            }
+            else { Console.WriteLine("Unexpected error"); }
+        }
+    }
+}

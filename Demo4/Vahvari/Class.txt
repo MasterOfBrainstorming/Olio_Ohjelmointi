@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01.Hissi
+{
+    class Amp
+    {
+        private int Vol = 0;
+        private int MinVol = 0;
+        private int MaxVol = 100;
+
+        public int Volume
+        {
+            get
+            {
+                return Vol;
+            }
+            set
+            {
+                Getvol(value);
+            }
+        }
+
+
+        public void Getvol(int value)
+        {
+            if (value <= MaxVol && value >= MinVol)
+            {
+                Vol = value;
+                PrintVol(1);
+            }
+            else if (value < MinVol)
+            {
+                Vol = MinVol;
+                PrintVol(2);
+            }
+            else if (value > MaxVol)
+            {
+                Vol = MaxVol;
+                PrintVol(3);
+            }
+        }
+        public void Getfeed()
+        {
+            Console.Write("Current volume: {0} Turn the volume knob (0-100)\n>", Vol);
+            Volume = int.Parse(Console.ReadLine());
+        }
+
+        public void PrintVol(int value)
+        {
+            if (value == 1)
+            {
+                Console.Write("->Amplifier volume is set to {0}\n\n", Vol);
+            }
+            else if (value == 2)
+            {
+                Console.Write("->Too low volume - Amplifier volume is set to {0} (minimum)\n\n", Vol);
+            }
+            else if (value == 3)
+            {
+                Console.Write("->Too much volume -  Amplifier volume is set to {0} (maximum)\n\n", Vol);
+            }
+        }
+    }
+}

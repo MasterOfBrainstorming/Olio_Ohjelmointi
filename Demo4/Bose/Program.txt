@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace teht03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employ nak = new Employ("Nakki", "hodari", 3);
+            Employ sina = new Employ("Sinappi", "turun sinappi", 2);
+            Bose bos = new Bose("Ukko", "Isomiäs", 10000, "lunarissa", 10);
+            Console.WriteLine(nak.ToString());
+            Console.WriteLine(sina.ToString());
+            sina.cProf("felix");
+            Console.WriteLine(sina.ToString());
+            Console.WriteLine(bos.ToString());
+        }
+    }
+}

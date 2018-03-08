@@ -1,0 +1,64 @@
+// Tee ohjelma, joka n‰ytt‰‰ annetun sekuntim‰‰r‰n tunteina,
+// minuutteina ja sekunteina. Aikam‰‰re sekuntteina kysyt‰‰n k‰ytt‰j‰lt‰. 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Teh05
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int seconds;
+            Console.WriteLine("Write time in seconds :");
+            string input = (Console.ReadLine());
+            bool result = Int32.TryParse(input, out seconds);
+
+            int h = seconds / 3600;
+            int m = (seconds % 3600) / 60;
+            int s = (seconds % 60);
+
+            if (result == true)
+            {
+                if (seconds < 0)
+                {
+                    if (h > 0)
+                    {
+                        Console.WriteLine("{0}h, {1}m, {2}s", h, m, s);
+                    }
+                    else if (m > 0)
+                    {
+                        Console.WriteLine("{0}m, {1}s", m, s);
+                    }
+                    else
+                    {
+                        Console.WriteLine("{0}s", s);
+                    }
+                }
+                else
+                {
+                    if (h > 0)
+                    {
+                        Console.WriteLine("{0}h, {1}m, {2}s", h, m, s);
+                    }
+                    else if (m > 0)
+                    {
+                        Console.WriteLine("{0}m, {1}s", m, s);
+                    }
+                    else
+                    {
+                        Console.WriteLine("{0}s", s);
+                    }
+                }
+            }
+
+
+
+        }
+    }
+}

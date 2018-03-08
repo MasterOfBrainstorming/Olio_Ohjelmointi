@@ -1,0 +1,29 @@
+// Tee ohjelma, joka alustaa sovellukseen käyttöö seuraavan 
+// taulukon arvot = [1,2,33,44,55,68,77,96,100]. 
+// Käy sovelluksessa taulukko läpi ja tulosta ruutuun 
+// "HEP"-sana aina kun taulukossa oleva luku on parillinen.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Teht06
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] nakki = { 1, 2, 33, 44, 55, 68, 77, 96, 100 };
+            foreach(int bite in nakki)
+            {
+                if (bite % 2 == 0)
+                {
+                    Console.WriteLine("HEP {0}",bite);
+                }
+                else { Console.WriteLine("{0}", bite); }
+            }
+        }
+    }
+}

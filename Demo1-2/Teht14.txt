@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] num = new int[6];
+            int grade=10;
+            Console.WriteLine("Press 8 to quit the loop");
+            while (grade !=8)
+            { 
+                Console.WriteLine("Your grade?");
+                Console.Write(">");
+                grade = int.Parse(Console.ReadLine());
+                if (grade > 5)
+                {
+                    continue;
+                }
+                else if (grade == 1)
+                {
+                    num[1] += 1;
+                }
+                else if (grade == 2)
+                {
+                    num[2] += 1;
+                }
+                else if (grade == 3)
+                {
+                    num[3] += 1;
+                }
+                else if (grade == 4)
+                {
+                    num[4] += 1;
+                }
+                else if (grade == 5)
+                {
+                    num[5] += 1;
+                }
+                else if (grade == 0)
+                {
+                    num[0] += 1;
+                }
+
+            }
+            String ze = new string('*', num[0]);
+            String on = new string('*', num[1]);
+            String tw = new string('*', num[2]);
+            String tr = new string('*', num[3]);
+            String fo = new string('*', num[4]);
+            String fi = new string('*', num[5]);
+            Console.WriteLine("0: {0} ",ze);
+            Console.WriteLine("1: {0} ", on);
+            Console.WriteLine("2: {0} ", tw);
+            Console.WriteLine("3: {0} ", tr);
+            Console.WriteLine("4: {0} ", fo);
+            Console.WriteLine("5: {0} ", fi);
+        }
+    }
+}

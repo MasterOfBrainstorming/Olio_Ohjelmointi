@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Student
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] array = new string[5];
+            Student student = new Student();
+
+            for(int i=0;i< 5; i++)
+            {
+                student.SetID(i);
+                Console.Write("Set your name:\n>");
+                student.SetName(Console.ReadLine());
+                Console.Write("Set your age:\n>");
+                student.SetAge(int.Parse(Console.ReadLine()));
+                Console.Write("Set your address\n>");
+                student.SetAddress(Console.ReadLine());
+                Console.Write("Set your email\n>");
+                student.SetEmail(Console.ReadLine());
+                Console.Write("Set your phone number\n>");
+                student.SetPhoneNum(int.Parse(Console.ReadLine()));
+                Console.Write("Set your ects\n>");
+                student.SetEcts(int.Parse(Console.ReadLine()));
+                Console.Write("Set the program\n>");
+                student.SetProgram(Console.ReadLine());
+
+                string info = student.ToString();
+                array[i] = info;
+
+            }
+            for (int j = 0; j < 5; j++) {
+                Console.WriteLine(array[j]);
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+// Tee kahden sisäkkäisen for-silmukan 
+// avulla ohjelma, joka tulostaa seuraavanlaisen kuvion:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Teht11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("How high is your triangle?");
+            int input = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= input; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine("");
+            }
+        }
+    }
+}

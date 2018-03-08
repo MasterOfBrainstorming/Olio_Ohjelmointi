@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Heater
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Heater heater = new Heater(false);
+            while (true)
+            {
+                heater.PrintData();
+                Console.Write("Turn on or off\non/off\n>");
+                heater.Turnon(Console.ReadLine());
+                Console.Write("Humidity +/-\n>");
+                heater.HChange(Console.ReadLine());
+                Console.Write("Temperature +/-\n>");
+                heater.TChange(Console.ReadLine());
+            }
+
+        }
+    }
+}
