@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CD_levy
+{
+    class Artist : CD
+    {
+        public string aName { get; set; }
+
+        private List<Album> aArtist;
+
+        public Artist()
+        {
+            aArtist = new List<Album>();
+        }
+
+        public void AddAlbum(Album album)
+        {
+            aArtist.Add(album);
+        }
+        
+        public override string ToString()
+        {
+            return "\nArtist: " + aName +"\n";
+        }
+        public void Print()
+        {
+            foreach (Album a in aArtist)
+            {
+                Console.Write(a);
+            }
+        }
+    }
+}

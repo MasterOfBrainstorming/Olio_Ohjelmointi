@@ -1,0 +1,6 @@
+D:\K1521\oliotentti\Bägi\T3\bin\Debug\T3.exe.config
+D:\K1521\oliotentti\Bägi\T3\bin\Debug\T3.exe
+D:\K1521\oliotentti\Bägi\T3\bin\Debug\T3.pdb
+D:\K1521\oliotentti\Bägi\T3\obj\Debug\T3.csprojResolveAssemblyReference.cache
+D:\K1521\oliotentti\Bägi\T3\obj\Debug\T3.exe
+D:\K1521\oliotentti\Bägi\T3\obj\Debug\T3.pdb

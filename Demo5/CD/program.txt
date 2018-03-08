@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CD_levy
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*
+            CD cd = new CD();
+            Biisi b1 = new Biisi { Artist = "Tuuttimörkö", Name="Tuuttis tulee, oletko valmis?",Album="On totta",Genre="Taagia",Lenght="3:32" };
+            cd.Addtrack(b1);
+            cd.Print();
+            */
+
+            CD cd1 = new CD();
+            Artist a1 = new Artist {aName="Tuuttimörkö" };
+            Album al1 = new Album { AlbumName="On totta", Genre="Taagia" };
+            Album al2 = new Album { AlbumName = "Kromihammas", Genre = "Taagia" };
+            Biisi b1 = new Biisi {Name = "Tuuttis tulee, oletko valmis?", Lenght= "3:32" };
+            Biisi b2 = new Biisi { Name = "Aikuinejjäbis", Lenght="4:11" };
+
+            al1.Addtrack(b1);
+            al2.Addtrack(b2);
+            a1.AddAlbum(al1);
+            a1.AddAlbum(al2);
+            cd1.AddArtist(a1);
+
+            cd1.Print();
+            a1.Print();
+            al1.Print();
+            al2.Print();
+        }
+    }
+}

@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CD_levy
+{
+    class Album : Artist
+    {
+        private List<Biisi> aTrack;
+
+        public Album()
+        {
+           aTrack = new List<Biisi>();
+        }
+        public string AlbumName { get; set; }
+        public string Genre { get; set; }
+
+        public void Addtrack(Biisi track)
+        {
+            aTrack.Add(track);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString()+ "Album: " +AlbumName + " Genre: " + Genre;
+        }
+        public void Print()
+        {
+            foreach (Biisi a in aTrack)
+            {
+                Console.Write(a);
+            }
+        }
+        
+}
+}

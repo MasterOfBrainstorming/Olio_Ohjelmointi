@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication28
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Country fi = new Country {aCountry="Finland" };
+            City tre = new City { aCity = "Tampere" };
+            Area herw = new Area { aArea = "Hervanta" };
+            Building TOAS = new Building { Bildn = "TOAS" };
+            Appartment A1 = new Appartment { AppNro = "Jokinen" };
+            People ppl = new People { Amount = 200 };
+
+            A1.AddPeople(ppl);
+            TOAS.AddApps(A1);
+            herw.AddApps(TOAS);
+            tre.AddApps(herw);
+            fi.AddApps(tre);
+
+            
+            fi.Print();        
+            tre.Print();
+            herw.Print();
+            TOAS.Print();
+            A1.Print();
+        }
+    }
+}

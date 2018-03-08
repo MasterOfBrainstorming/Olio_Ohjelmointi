@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication28
+{
+    class Appartment
+    {
+        private List<People> lAppsppl;
+
+        public Appartment()
+        {
+            lAppsppl = new List<People>();
+        }
+        public string AppNro { get; set; }
+
+        public void AddPeople(People ppl)
+        {
+            lAppsppl.Add(ppl);
+        }
+
+        public override string ToString()
+        {
+            return "Appartment: " + AppNro;
+        }
+        public void Print()
+        {
+            foreach (People a in lAppsppl)
+            {
+                Console.Write(a);
+            }
+        }
+    }
+}

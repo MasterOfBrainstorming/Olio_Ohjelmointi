@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CD_levy
+{
+    class CD
+    {
+        private List<Artist> cd;
+
+        public CD()
+        {
+            cd = new List<Artist>();
+        }
+        public void AddArtist(Artist artist)
+        {
+            cd.Add(artist);
+        }
+/*
+        private List<Biisi> cd;
+        
+        public CD()
+        {
+            cd = new List<Biisi>();
+        }
+*/
+/*
+        public void Addtrack(Biisi track)
+        {
+            cd.Add(track);
+        }
+*/
+/*
+        public Biisi GetTrack(int location)
+        {
+            if (location < cd.Count)
+            {
+                return cd.ElementAt(location);
+            }
+            else { return null; }
+        }
+*/
+/*
+        public Biisi Findtrack(string name)
+        {
+            foreach (Biisi track in cd)
+            {
+                if (name.Equals(track.Artist))
+                {
+                    return track;
+                }
+            }
+            return null;
+        }
+*/
+        public void Print()
+        {
+            foreach (Artist a in cd)
+            {
+                Console.Write(a);
+            }
+        }
+    }
+}

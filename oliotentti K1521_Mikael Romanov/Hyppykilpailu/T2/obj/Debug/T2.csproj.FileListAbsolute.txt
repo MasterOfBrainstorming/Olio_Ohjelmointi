@@ -1,0 +1,6 @@
+D:\K1521\oliotentti\Hyppykilpailu\T2\bin\Debug\T2.exe.config
+D:\K1521\oliotentti\Hyppykilpailu\T2\bin\Debug\T2.exe
+D:\K1521\oliotentti\Hyppykilpailu\T2\bin\Debug\T2.pdb
+D:\K1521\oliotentti\Hyppykilpailu\T2\obj\Debug\T2.csprojResolveAssemblyReference.cache
+D:\K1521\oliotentti\Hyppykilpailu\T2\obj\Debug\T2.exe
+D:\K1521\oliotentti\Hyppykilpailu\T2\obj\Debug\T2.pdb

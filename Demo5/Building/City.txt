@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication28
+{
+    class City : Country
+    {
+        private List<Area> lArea;
+
+        public City()
+        {
+            lArea = new List<Area>();
+        }
+        public string aCity { get; set; }
+
+        public void AddApps(Area aps)
+        {
+            lArea.Add(aps);
+        }
+
+        public override string ToString()
+        {
+            return  "City: " + aCity +"\n";
+        }
+        public void Print()
+        {
+            foreach (Area a in lArea)
+            {
+                Console.Write(a);
+            }
+        }
+    }
+}

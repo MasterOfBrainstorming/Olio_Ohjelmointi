@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication28
+{
+    class Building : Area
+    {
+        private List<Appartment> lApps;
+
+        public Building()
+        {
+            lApps = new List<Appartment>();
+        }
+        public string Bildn { get; set; }
+
+        public void AddApps(Appartment aps)
+        {
+            lApps.Add(aps);
+        }
+
+        public override string ToString()
+        {
+            return "Building: " + Bildn + "\n";
+        }
+        public void Print()
+        {
+            foreach (Appartment a in lApps)
+            {
+                Console.Write(a);
+            }
+        }
+    }
+}
