@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="PersonAPP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PersonAPP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="800" Height="600"
+    >
+
+    <Grid Background="#bfbfbf" BorderThickness="5" BorderBrush="#a6a6a6">
+        <!--"{ThemeResource ApplicationPageBackgroundThemeBrush}"-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="10,10,0,10" Grid.Column="0" Background="#e6e6e6" BorderThickness="2" BorderBrush="#bfbfbf">
+            <TextBlock Text="Employee basic info:" Margin="5,10,0,10"/>
+            
+            <!--name-->
+            <StackPanel Orientation="Horizontal" Margin="5,8,5,8" Padding="1,1,1,1">
+                <TextBlock Text="Name" Width="100" />
+                <TextBox x:Name="nameTextBox" Width="250"/>
+            </StackPanel>
+            
+             <!---email-->
+            <StackPanel Orientation="Horizontal" Margin="5,8,5,8" Padding="1,1,1,1">
+                <TextBlock Text="Email" Width="100" />
+                <TextBox x:Name="emailTextBox" Width="250"/>
+            </StackPanel>
+            
+            <!---password-->
+            <StackPanel Orientation="Horizontal" Margin="5,8,5,5" Padding="1,1,1,1">
+                <TextBlock Text="Password" Width="100" />
+                <TextBox x:Name="passwdTextBox" Width="250"/>
+            </StackPanel>
+            
+            <TextBlock Text="User level: " Margin="5,10,0,0"/>
+            <!--userlevel-->
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,5" BorderThickness="0,1,0,1" BorderBrush="#bfbfbf" Padding="5,5,0,5">
+                <CheckBox x:Name="normalUserCheckBox" Content="Normal User" IsChecked="True"/>
+                <CheckBox x:Name="adminCheckBox" Content="Admin"/>
+                <CheckBox x:Name="anonymousCheckBox" Content="Anonymous"/>
+            </StackPanel>
+            
+            <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Margin="10,10,0,0"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="10,10,10,10" Background="#e6e6e6" BorderThickness="2" BorderBrush="#bfbfbf">
+            <TextBlock Text="Image:" Margin="4,0,0,2"/>
+            <Image Source="Assets\employee03.png" Height="150" Width="Auto" HorizontalAlignment="Left" Margin="4,0,0,0"/>
+            <Button Content="Browse" Margin="20,10,0,0"/>
+
+        </StackPanel>
+        </Grid>
+</Page>
